@@ -1,0 +1,5 @@
+flask
+mysql-connector-python
+Flask-JWT-Extended
+bcrypt
+flask-restx
