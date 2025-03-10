@@ -149,8 +149,8 @@ class AddPost(Resource):
         content = postData.get('content')
         user_id = get_jwt_identity()
         
-        if not title or not content or not user_id:
-            return jsonify({'error': 'title, content and user_id are required'})
+        if not title or not content:
+            return jsonify({'error': 'title and content are required'})
         
         connection=get_db_connection()      # Borrow a connection from the pool
         cursor = connection.cursor()
