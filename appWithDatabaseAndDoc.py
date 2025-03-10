@@ -29,6 +29,11 @@ def get_db_connection():
     )
     return pool.get_connection()
 
+login_Model = api.model('Login', {
+    'username': fields.String(required=True, description='Registered username'),
+    'password': fields.String(required=True, description='Registered password')
+})
+
 user_Model = api.model('User', {
     'username': fields.String(required=True, description='The username of the user'),
     'password': fields.String(required=True, description='The password of the user'),
@@ -114,7 +119,7 @@ class Register(Resource):
 #@app.route('/login', methods=['POST'])
 @api.route('/login')
 class Login(Resource):
-    @api.expect(user_Model)
+    @api.expect(login_Model)
     def post(self):
         loginData=request.get_json()
         username=loginData.get('username')   
@@ -140,7 +145,7 @@ class Login(Resource):
 # Route to create a new post
 #@app.route('/addPost', methods=['POST'])
 @api.route('/addPost')
-class AddPost(Resource):
+class AddPost(Resource): 
     @api.expect(post_Model)
     @jwt_required()
     def post(self):
