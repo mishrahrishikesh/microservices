@@ -7,10 +7,10 @@ pipeline{
         stage('Build') {
             steps{
                 script{
-                    if (params.ACTION == 'deploy'){
+                    if (params.ACTION == 'DEPLOY'){
                         sh 'docker compose up -d'
                     }
-                    else if (params.ACTION == 'destroy'){
+                    else if (params.ACTION == 'DESTROY'){
                         sh 'docker compose down'
                     }
                     else{
