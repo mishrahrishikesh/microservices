@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters{
-        choice(name: 'ACTION', choices:['deploy', 'destroy'], description: 'Choose to deploy or destroy the app')
+        choice(name: 'ACTION', choices:['DEPLOY', 'DESTROY'], description: 'Choose to deploy or destroy the app')
     }
     stages{
         stage('Build') {
