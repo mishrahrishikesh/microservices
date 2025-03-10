@@ -1,7 +1,7 @@
 services:
   flask-app:
     image: python:3.9
-    container_name: flask-app
+    container_name: flask-app-jenkins
     ports:
       - "5001:5001"
     environment:
@@ -23,7 +23,7 @@ services:
 
   mysql:
     image: mysql:8.0
-    container_name: mysql
+    container_name: mysql-jenkins
     ports:
       - "3306:3306"
     environment:
