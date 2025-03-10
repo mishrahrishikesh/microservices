@@ -6,14 +6,16 @@ pipeline{
     stages{
         stage('Build') {
             steps{
-                if (params.ACTION == 'deploy'){
-                    sh 'docker compose up -d'
-                }
-                else if (params.ACTION == 'destroy'){
-                    sh 'docker compose down'
-                }
-                else{
-                    echo 'Invalid Selection'
+                script{
+                    if (params.ACTION == 'deploy'){
+                        sh 'docker compose up -d'
+                    }
+                    else if (params.ACTION == 'destroy'){
+                        sh 'docker compose down'
+                    }
+                    else{
+                        echo 'Invalid Selection'
+                    }
                 }
             }
         }
