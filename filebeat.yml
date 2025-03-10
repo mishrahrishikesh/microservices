@@ -1,0 +1,8 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /app/logs/*.log  # Adjust the path as per your Flask app's log location
+
+output.logstash:
+  hosts: ["logstash:5044"]  # Logstash's address and port
