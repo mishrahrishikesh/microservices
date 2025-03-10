@@ -10,11 +10,8 @@ pipeline{
                     if (params.ACTION == 'DEPLOY'){
                         sh 'docker compose up -d'
                     }
-                    else if (params.ACTION == 'DESTROY'){
-                        sh 'docker compose down'
-                    }
                     else{
-                        echo 'Invalid Selection'
+                        sh 'docker compose down'
                     }
                 }
             }
