@@ -190,7 +190,6 @@ class AddComment(Resource):
 #@app.route('/users', methods=['GET'])
 @api.route('/users')
 class Users(Resource):
-    @api.expect(user_Model)
     def get(self):
         connection=get_db_connection()
         cur=connection.cursor()
@@ -209,7 +208,6 @@ class Users(Resource):
 #@app.route('/posts', methods=['GET'])
 @api.route('/posts')
 class Posts(Resource):
-    @api.expect(post_Model)
     def get(self):
         connection=get_db_connection()       # Borrow a connection from the pool
         cursor = connection.cursor()
@@ -227,7 +225,6 @@ class Posts(Resource):
 # @app.route('/posts/<int:user_id>', methods=['GET'])
 @api.route('/posts/<int:user_id>')
 class UserPost(Resource):
-    @api.expect(post_Model)
     def get(self, user_id):
         connection=get_db_connection()       # Borrow a connection from the pool
         cursor = connection.cursor()
@@ -246,7 +243,6 @@ class UserPost(Resource):
 # @app.route('/comments/<int:post_id>', methods=['GET'])
 @api.route('/comments/<int:post_id>')
 class PostComment(Resource):
-    @api.expect(comment_Model)
     def showComments(self, post_id):
         connection=get_db_connection()
         cur=connection.cursor()
