@@ -16,10 +16,7 @@ def create_post():
         return jsonify({'error': 'Title and content are required'}), 400
 
     # Create the post and append it to the posts list
-    post = {
-        'title': title,
-        'content': content
-    }
+    post = {'title': title, 'content': content}
     posts.append(post)
 
     return jsonify({'message': 'Post created', 'post': post}), 201

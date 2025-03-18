@@ -1,0 +1,6 @@
+server.host: "0.0.0.0"
+server.shutdownTimeout: "5s"
+elasticsearch.hosts: [ "http://elasticsearch:9200" ]
+monitoring.ui.container.elasticsearch.enabled: true
+monitoring.ui.container.logstash.enabled: true
+elasticsearch.serviceAccountToken: "AAEAAWVsYXN0aWMva2liYW5hL3Rva2VuXzZCU1ltNVVCMFZtZHZyX0RBYUIyOjk3WVNISXdBUWd1ekhxaThONlJEMUE"
